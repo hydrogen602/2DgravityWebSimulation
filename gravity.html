@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test</title>
+    <style type="text/css">
+        canvas {
+            height: 100%;
+            width: 100%;
+            border: 2px solid black;
+        }
+        table {
+            border-collapse: collapse;
+            background-color: white;
+        }
+        th, td {
+            padding: 15px;
+            /*min-width: 160px;*/
+        }
+        th {
+            text-align: left;
+            background-color: #00a5ed;
+        }
+        tr:hover {
+            background-color: #85cdf3;
+        }
+        table#dataTable tr {
+            border-bottom: 1px solid black;
+            border-left: 1px solid black;
+            border-right: 1px solid black;
+        }
+        #dataTable {
+            width: 100%;
+            margin-bottom: 10px;
+            margin-top: 5px;
+        }
+        .box {
+            border: 1px solid black; 
+            border-radius: 5px;
+            padding: 5px;
+            height: 18px;
+        }
+        #addPlanet {
+            display: inline;
+        }
+        .tagAlong {
+            display: inline-block;
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id='visual'>
+        <canvas id='myCanvas'></canvas>
+        <div>
+            <button id='stop' onclick='stop()'>Stop</button>
+            <button id='resume' onclick='resume()' disabled>Resume</button>
+            <button id='restart' onclick='restart()'>Restart</button>
+        </div>
+    </div>
+    <div id='table'>
+        <table id='dataTable'>
+            <tr>
+                <th>x</th>
+                <th>y</th>
+                <th>r</th>
+                <th>Mass</th>
+                <th>v<sub>x</sub></th>
+                <th>v<sub>y</sub></th>
+                <th>color</th>
+            </tr>
+        </table>
+        <div id="addPlanet" class="box">
+            <button id='addObject' onclick='addObject()' disabled>Add a Planet</button>
+        </div>
+        <div id="remove" class="box tagAlong">
+            <input id='removeID' placeholder="planet num">
+            <button id='removeObject' onclick='removeObject()' disabled>Remove Planet</button>
+        </div>
+        <div id="tStep" class="box tagAlong">
+            <input id='tStepValue' value="2">
+            <button id='tStepSubmit' onclick='tStepChange()' disabled>Change Time Step</button>
+        </div>
+        <div id="hertz" class="box tagAlong">
+            Update Cycle: <span id='hertzValue'></span> Hz
+        </div>
+    </div>
+    <script type="text/javascript" src="gravity.js"></script>
+</body>
+</html>
